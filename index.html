@@ -1,43 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
-    <title>Home</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!-- Fonte Rawline-->
-    <link
-      rel="stylesheet"
-      href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css"
-    />
-    <!-- Fonte Raleway-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"
-    />
-    <!-- Design System de Governo-->
-    <link
-      rel="stylesheet"
-      href="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core.min.css"
-    />
-    <!-- Fontawesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./index.css" />
+    <title>Login - gov.br</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Design System do Governo -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@govbr-ds/core/dist/core.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+
+      .login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background-color: #f2f2f2;
+      }
+
+      .br-card {
+        max-width: 400px;
+        width: 100%;
+        padding: 2rem;
+      }
+
+      .govbr-logo {
+        max-width: 180px;
+        margin: 0 auto 2rem auto;
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <div class="row">
-      <div class="col-auto mx-5">
-        <h1>Teste</h1>
+    <div class="login-container">
+      <div class="br-card">
+        <img class="govbr-logo" src="https://www.serpro.gov.br/++resource++serpro.portalserprotema/capa/++resource++serpro.portalserprotema/img/capa/marca-serpro.png" alt="gov.br" />
+        <h4 class="text-center mb-3">Acesse com sua conta gov.br</h3>
+
+        <p class="text-center text-up-01 mb-4">Para acessar o sistema, utilize sua identidade digital.</p>
         
+        <div class="text-center text-up-01 mb-4">
+          <a href="tela-opcao.html" class="br-button primary large w-100" role="button">
+            <i class="fa-solid fa-lock mr-1"></i>
+            Entrar com gov.br
+          </a>
+        </div>
+        <div class="text-center mt-4">
+          <small class="text-down-01">
+            Ao clicar em "Entrar", você será redirecionado para o ambiente seguro do gov.br.
+          </small>
+        </div>
       </div>
     </div>
-    <br />
-    <script
-      type="text/javascript"
-      src="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core-init.js"
-    ></script>
-    <script type="text/javascript" src="./index.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@govbr-ds/core/dist/core.min.js"></script>
   </body>
 </html>

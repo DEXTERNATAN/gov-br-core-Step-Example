@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Home — Central de Serviços Serpro</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Font Rawline -->
+    <link
+      rel="stylesheet"
+      href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css"
+    />
+    <!-- Font Raleway -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"
+    />
+    <!-- Design System de Governo Federal -->
+    <link
+      rel="stylesheet"
+      href="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <!-- Seu CSS adicional -->
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="template-base">
+      <!-- Skiplinks -->
+      <nav class="br-skiplink" role="menubar">
+        <a class="br-item" href="#main-content" role="menuitem" accesskey="1">
+          Ir para o conteúdo <span aria-hidden="true">(1/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">1</span>
+        </a>
+        <a class="br-item" href="#header-navigation" role="menuitem" accesskey="2">
+          Ir para o menu <span aria-hidden="true">(2/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">2</span>
+        </a>
+        <a class="br-item" href="#main-searchbox" role="menuitem" accesskey="3">
+          Ir para a busca <span aria-hidden="true">(3/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">3</span>
+        </a>
+        <a class="br-item" href="#footer" role="menuitem" accesskey="4">
+          Ir para o rodapé <span aria-hidden="true">(4/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">4</span>
+        </a>
+      </nav>
+
+      <!-- Header -->
+      <header class="br-header mb-4" id="header" data-sticky="data-sticky">
+        <div class="container-lg">
+          <div class="header-top">
+            <div class="header-logo">
+              <img
+                src="https://www.serpro.gov.br/++resource++serpro.portalserprotema/capa/++resource++serpro.portalserprotema/img/capa/marca-serpro.png"
+                alt="logo"
+              />
+              <span class="br-divider vertical"></span>
+              <div class="header-sign">Design System do Governo</div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <div class="header-menu">
+              <div class="header-menu-trigger" id="header-navigation">
+                <button
+                  class="br-button small circle"
+                  type="button"
+                  aria-label="Menu"
+                  data-toggle="menu"
+                  data-target="#main-navigation"
+                >
+                  <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="header-info">
+                <div class="header-title">Central de Serviços Serpro</div>
+                <div class="header-subtitle">
+                  Canal de atendimento para usuários dos produtos e serviços do Serpro
+                </div>
+              </div>
+            </div>
+            <div class="header-search" id="main-searchbox">
+              <div class="br-input has-icon">
+                <label for="searchbox">Texto da pesquisa</label>
+                <input
+                  id="searchbox"
+                  type="text"
+                  placeholder="O que você procura?"
+                />
+                <button
+                  class="br-button circle small"
+                  type="button"
+                  aria-label="Pesquisar"
+                >
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+              <button
+                class="br-button circle search-close ml-1"
+                type="button"
+                aria-label="Fechar Busca"
+                data-dismiss="search"
+              >
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="d-flex flex-fill mb-5" id="main">
+        <div class="container-lg">
+          <div class="row">
+            <!-- Conteúdo principal -->
+            <div class="col">
+              <nav class="br-breadcrumb mb-4">
+                <ol class="crumb-list" role="list">
+                  <li class="crumb home">
+                    <a class="br-button circle" href="#">
+                      <span class="sr-only">Página inicial</span>
+                      <i class="fas fa-home"></i>
+                    </a>
+                  </li>
+                  <li class="crumb">
+                    <i class="icon fas fa-chevron-right"></i>
+                    <a href="#">Tela Anterior</a>
+                  </li>
+                  <li class="crumb" data-active="active">
+                    <i class="icon fas fa-chevron-right"></i>
+                    <span tabindex="0" aria-current="page">Cadastrar nova solicitação</span>
+                  </li>
+                </ol>
+              </nav>
+
+              <h1 id="main-content">Cadastrar nova solicitação</h1>
+
+              <!-- Formulário em card DS -->
+              <div class="br-card mt-4">
+                <div class="card-header">
+                  Registro de Solicitação de Serviço
+                  <em class="text-danger ml-1">*</em>
+                </div>
+                <div class="card-content">
+                  <form id="formTicket" name="formTicket" action="#" method="post">
+                    <!-- Identificação -->
+                    <fieldset class="mb-4">
+                      <legend>Identificação <em class="text-danger">*</em></legend>
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="br-input">
+                            <label for="cpf">CPF</label>
+                            <input
+                              id="cpf"
+                              name="cpf"
+                              type="text"
+                              placeholder="000.000.000-00"
+                              aria-required="true"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                          <div class="br-input">
+                            <label for="solicitante">Nome do Solicitante</label>
+                            <input
+                              id="solicitante"
+                              name="solicitante"
+                              type="text"
+                              placeholder="Fulano da Silva"
+                              readonly
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <!-- Descrição -->
+                    <fieldset class="mb-4">
+                      <legend>Descrição <em class="text-danger">*</em></legend>
+                      <div class="br-input mb-3">
+                        <label for="assunto">Assunto</label>
+                        <input
+                          id="assunto"
+                          name="assunto"
+                          type="text"
+                          placeholder="Preencha após CPF"
+                        />
+                      </div>
+                      <div class="br-textarea mb-3">
+                        <label for="detalhes">Detalhes da Demanda</label>
+                        <textarea
+                          id="detalhes"
+                          name="detalhes"
+                          placeholder="Descreva os detalhes da demanda..."
+                          rows="4"
+                        ></textarea>
+                      </div>
+                    </fieldset>
+
+                    <!-- Anexos (componente DS customizado) -->
+                    <fieldset class="mb-4">
+                      <legend>Anexos</legend>
+                      <div class="br-upload">
+                        <label class="upload-label" for="multiple-files">
+                          <span>Envio de arquivos</span>
+                        </label>
+                        <input
+                          class="upload-input"
+                          id="multiple-files"
+                          name="anexos[]"
+                          type="file"
+                          multiple
+                          accept=".bmp,.csv,.doc,.docx,.gif,.jpeg,.jpg,.odb,.odd,.odp,.ods,.odt,.pdf,.png,.ppt,.pptx,.txt,.xls,.xlsx,.xml,.zip"
+                        />
+                        <div class="upload-list"></div>
+                      </div>
+                      <p class="text-base mt-1">
+                        Clique ou arraste os arquivos para cima do componente Upload.
+                      </p>
+                    </fieldset>
+
+                    <!-- Privacidade -->
+                    <div class="mb-4 text-small">
+                      <a
+                        href="https://www.serpro.gov.br/menu/suporte/aviso-de-privacidade-css.pdf"
+                        target="_blank"
+                        class="br-link"
+                        >Aviso de privacidade</a
+                      >
+                      e
+                      <a
+                        href="https://www.serpro.gov.br/menu/suporte/termos-de-uso-da-css.pdf"
+                        target="_blank"
+                        class="br-link"
+                        >Termos de uso</a
+                      >
+                      da Central de Serviços Serpro.
+                    </div>
+
+                    <!-- Botões -->
+                    <div class="d-flex justify-content-end">
+                      <button type="reset" class="br-button secondary mr-2">
+                        Limpar
+                      </button>
+                      <button type="submit" class="br-button primary">
+                        Enviar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- /Formulário DS -->
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="br-footer pt-3" id="footer">
+        <div class="container-lg">
+          <div class="info">
+            <div class="text-down-01 text-medium pb-3">
+              Texto destinado a exibição de informações relacionadas à&nbsp;
+              <strong><a href="#">licença de uso</a></strong>.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core-init.js"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

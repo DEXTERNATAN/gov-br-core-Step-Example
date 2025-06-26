@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Fontes e Design System -->
+    <link rel="stylesheet" href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" href="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <style>
+      .card-icon {
+        transition: transform 0.2s;
+      }
+      .card-icon:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="template-base">
+    <header class="br-header mb-4" id="header" data-sticky="data-sticky">
+      <div class="container-lg">
+        <div class="header-top">
+          <div class="header-logo"><img src="https://www.serpro.gov.br/++resource++serpro.portalserprotema/capa/++resource++serpro.portalserprotema/img/capa/marca-serpro.png" alt="logo"/><span class="br-divider vertical"></span>
+            <div class="header-sign">Design System do Governo</div>
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="header-menu">
+            <div class="header-menu-trigger" id="header-navigation">
+              <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu" data-target="#main-navigation" id="navigation"><i class="fas fa-bars" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="header-info">
+              <div class="header-title">Central de Serviços Serpro</div>
+              <div class="header-subtitle">Canal de atendimento para usuários dos produtos e serviços do Serpro</div>
+            </div>
+          </div>
+          <div class="header-search" id="main-searchbox">
+            <div class="br-input has-icon">
+              <label for="searchbox">Texto da pesquisa</label>
+              <input id="searchbox" type="text" placeholder="O que você procura?"/>
+              <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+            <button class="br-button circle search-close ml-1" type="button" aria-label="Fechar Busca" data-dismiss="search"><i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="d-flex flex-fill mb-5" id="main">
+      <div class="container-lg d-flex flex-column align-items-center">
+        <div class="row text-center justify-content-center my-5 w-100">
+          <div class="col-sm-4 d-flex justify-content-center">
+            <a href="./tela-solicitacao.html">
+              <div class="br-card p-5 text-center w-100 card-icon">
+                <i class="fas fa-plus-circle fa-3x mb-3" aria-hidden="true"></i>
+                <div class="h5">Cadastrar nova solicitação</div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4 d-flex justify-content-center">
+            <a href="./tela-listagem.html">
+              <div class="br-card p-5 text-center w-100 card-icon">
+                <i class="fas fa-list-alt fa-3x mb-3" aria-hidden="true"></i>
+                <div class="h5">Suas solicitações</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="br-footer pt-3" id="footer">
+      <div class="container-lg">
+        <div class="info">
+          <div class="text-down-01 text-medium pb-3">
+            Todo o conteúdo deste site está publicado sob a licença <strong><a href="">Creative Commons Atribuição-SemDerivações 3.0</a></strong>.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+    <script src="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core-init.js"></script>
+  </body>
+</html>
