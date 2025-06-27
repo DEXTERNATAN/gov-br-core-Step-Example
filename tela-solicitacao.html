@@ -41,6 +41,18 @@
         outline: 3px solid #005ea5;
         outline-offset: 2px;
       }
+      .small-card {
+        font-size: 1rem;
+        min-width: 100px;
+        max-width: 180px;
+        margin: 0 auto;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .small-card:hover {
+        transform: scale(1.05);
+        background: #e9ecef;
+      }
     </style>
   </head>
   <body>
@@ -213,8 +225,11 @@
                       <div
                         class="row align-items-center justify-content-center"
                       >
-                        <div class="col-md-10 mb-3">
-                          <div class="br-input large input-button">
+                        <div class="col-md-10 mb-3" id="assunto-group">
+                          <div
+                            class="br-input large input-button"
+                            id="assunto-input-wrapper"
+                          >
                             <label for="assunto">Assunto</label>
                             <input
                               id="assunto"
@@ -222,6 +237,7 @@
                               type="text"
                               placeholder="Digite aqui para pesquisar o assunto"
                               class="form-control"
+                              aria-describedby="assunto-feedback"
                             />
                             <button
                               class="br-button"
@@ -231,6 +247,17 @@
                             >
                               <i class="fas fa-search" aria-hidden="true"></i>
                             </button>
+                            <span
+                              class="feedback danger d-none"
+                              role="alert"
+                              id="assunto-feedback"
+                            >
+                              <i
+                                class="fas fa-times-circle"
+                                aria-hidden="true"
+                              ></i>
+                              O campo Assunto precisa ser preenchido.
+                            </span>
                           </div>
                         </div>
                         <div class="col-md-2 mb-3">
@@ -248,6 +275,7 @@
                         <div class="col">
                           <div
                             class="d-flex flex-wrap gap-3 justify-content-start"
+                            id="temas-cards"
                           >
                             <div
                               class="br-card hover p-5 text-center card-icon mr-4"
@@ -255,9 +283,10 @@
                               role="button"
                               tabindex="0"
                               aria-label="Categoria Wellhub"
+                              data-tema="wellhub"
                             >
                               <img
-                                src="assets/images/wellhub.jpg"
+                                src="assets/images/wellhub.png"
                                 class="mb-3"
                                 width="60"
                                 height="60"
@@ -271,9 +300,10 @@
                               role="button"
                               tabindex="0"
                               aria-label="Categoria Novos Horizontes"
+                              data-tema="novos-horizontes"
                             >
                               <img
-                                src="assets/images/novos-horizontes.jpg"
+                                src="assets/images/novos-horizontes.png"
                                 class="mb-3"
                                 width="100"
                                 height="60"
@@ -287,6 +317,7 @@
                               role="button"
                               tabindex="0"
                               aria-label="Categoria Benefícios"
+                              data-tema="beneficios"
                             >
                               <img
                                 src="assets/images/beneficios.png"
@@ -303,6 +334,7 @@
                               role="button"
                               tabindex="0"
                               aria-label="Categoria Educação"
+                              data-tema="educacao"
                             >
                               <img
                                 src="assets/images/educacao.png"
@@ -318,16 +350,73 @@
                               style="width: calc(20% - 24px); height: 150px"
                               role="button"
                               tabindex="0"
-                              aria-label="Categoria Dúvidas"
+                              aria-label="Categoria Dúvida"
+                              data-tema="duvida"
                             >
                               <img
                                 src="assets/images/duvida.png"
                                 class="mb-3"
                                 width="60"
                                 height="60"
-                                alt="Ícone da categoria Dúvidas"
+                                alt="Ícone da categoria Dúvida"
                               />
                               <p>Dúvida</p>
+                            </div>
+                          </div>
+                          <!-- Área para tabs e cards menores -->
+                          <div
+                            id="opcoes-tema"
+                            style="display: none; margin-top: 1.5rem"
+                          >
+                            <ul
+                              class="nav nav-tabs"
+                              id="tab-opcoes"
+                              role="tablist"
+                            >
+                              <li class="nav-item" role="presentation">
+                                <a
+                                  class="nav-link active"
+                                  id="tab-opcoes-tema"
+                                  data-toggle="tab"
+                                  href="#tab-opcoes-content"
+                                  role="tab"
+                                  aria-controls="tab-opcoes-content"
+                                  aria-selected="true"
+                                  >Opções <span id="tema-selecionado"></span
+                                ></a>
+                              </li>
+                            </ul>
+                            <div
+                              class="tab-content p-3 border border-top-0"
+                              id="tab-opcoes-content"
+                              style="background: #f8f9fa"
+                            >
+                              <div class="row justify-content-start">
+                                <div class="col-sm-3 mb-3">
+                                  <div
+                                    class="br-card p-3 text-center small-card"
+                                    style="height: 90px"
+                                  >
+                                    Opção 1
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 mb-3">
+                                  <div
+                                    class="br-card p-3 text-center small-card"
+                                    style="height: 90px"
+                                  >
+                                    Opção 2
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 mb-3">
+                                  <div
+                                    class="br-card p-3 text-center small-card"
+                                    style="height: 90px"
+                                  >
+                                    Opção 3
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -445,7 +534,54 @@
       document
         .getElementById("formTicket")
         .addEventListener("submit", function (e) {
-          e.preventDefault();
+          let erro = false;
+          // Validação do campo Detalhes da Demanda
+          const detalhesInput = document.getElementById("detalhes");
+          let detalhesWrapper = detalhesInput.closest(".br-textarea");
+          let detalhesFeedback = document.getElementById("detalhes-feedback");
+          if (!detalhesFeedback) {
+            detalhesFeedback = document.createElement("span");
+            detalhesFeedback.id = "detalhes-feedback";
+            detalhesFeedback.className = "feedback danger mt-1";
+            detalhesFeedback.setAttribute("role", "alert");
+            detalhesFeedback.innerHTML =
+              '<i class="fas fa-times-circle" aria-hidden="true"></i> O campo Detalhes da Demanda precisa ser preenchido.';
+            detalhesWrapper.appendChild(detalhesFeedback);
+          }
+          if (detalhesInput.value.trim() === "") {
+            e.preventDefault();
+            detalhesWrapper.classList.add("danger");
+            detalhesFeedback.classList.remove("d-none");
+            detalhesInput.focus();
+            erro = true;
+          } else {
+            detalhesWrapper.classList.remove("danger");
+            detalhesFeedback.classList.add("d-none");
+          }
+          // Validação do campo de upload
+          const uploadInput = document.getElementById("multiple-files");
+          let uploadWrapper = uploadInput.closest(".br-upload");
+          let uploadFeedback = document.getElementById("upload-feedback");
+          if (!uploadFeedback) {
+            uploadFeedback = document.createElement("span");
+            uploadFeedback.id = "upload-feedback";
+            uploadFeedback.className = "feedback danger mt-1";
+            uploadFeedback.setAttribute("role", "alert");
+            uploadFeedback.innerHTML =
+              '<i class="fas fa-times-circle" aria-hidden="true"></i> É necessário anexar pelo menos um arquivo.';
+            uploadWrapper.appendChild(uploadFeedback);
+          }
+          if (!uploadInput.files || uploadInput.files.length === 0) {
+            e.preventDefault();
+            uploadWrapper.classList.add("danger");
+            uploadFeedback.classList.remove("d-none");
+            if (!erro) uploadInput.focus();
+            erro = true;
+          } else {
+            uploadWrapper.classList.remove("danger");
+            uploadFeedback.classList.add("d-none");
+          }
+          if (erro) return;
           window.location.href = "tela-listagem.html";
         });
 
@@ -475,6 +611,45 @@
       if (detalhes && contador) {
         detalhes.addEventListener("input", function () {
           contador.textContent = `${detalhes.value.length}/1000 caracteres`;
+        });
+      }
+
+      // Adicionar script para exibir/ocultar opções ao clicar nos cards principais
+      document
+        .querySelectorAll('.br-card.hover[role="button"]')
+        .forEach(function (card) {
+          card.addEventListener("click", function () {
+            var tema = card.querySelector("p")?.textContent || "";
+            document.getElementById("tema-selecionado").textContent = tema;
+            document.getElementById("opcoes-tema").style.display = "block";
+          });
+        });
+
+      // Filtro dinâmico dos cards de temas conforme o campo Assunto
+      const inputAssunto = document.getElementById("assunto");
+      const cardsTemas = document.querySelectorAll(
+        '.br-card.hover[role="button"]'
+      );
+      if (inputAssunto && cardsTemas.length > 0) {
+        inputAssunto.addEventListener("input", function () {
+          const termo = inputAssunto.value.trim().toLowerCase();
+          if (!termo) {
+            cardsTemas.forEach(function (card) {
+              card.style.display = "";
+            });
+            return;
+          }
+          cardsTemas.forEach(function (card) {
+            const textoCard = card.textContent.toLowerCase();
+            const ariaLabel = (
+              card.getAttribute("aria-label") || ""
+            ).toLowerCase();
+            if (textoCard.includes(termo) || ariaLabel.includes(termo)) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
         });
       }
     </script>
