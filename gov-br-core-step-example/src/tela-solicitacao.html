@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Home — Central de Serviços Serpro</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Font Rawline -->
+    <link
+      rel="stylesheet"
+      href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css"
+    />
+    <!-- Font Raleway -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"
+    />
+    <!-- Design System de Governo Federal -->
+    <link
+      rel="stylesheet"
+      href="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <!-- Seu CSS adicional -->
+    <link rel="stylesheet" href="./index.css" />
+    <style>
+      .card-icon {
+        transition: transform 0.2s;
+        height: 220px;
+      }
+      .card-icon:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+      /* Foco visível nos cards via teclado */
+      .br-card.hover:focus-visible {
+        outline: 3px solid #005ea5;
+        outline-offset: 2px;
+      }
+      .small-card {
+        font-size: 1rem;
+        min-width: 100px;
+        max-width: 180px;
+        margin: 0 auto;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .small-card:hover {
+        transform: scale(1.05);
+        background: #e9ecef;
+      }
+      /* Responsividade dos cards de temas */
+      @media (max-width: 767px) {
+        #temas-cards .card-icon {
+          width: 100% !important;
+          margin-right: 0 !important;
+          margin-bottom: 1rem !important;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        #temas-cards .card-icon {
+          width: 48% !important;
+          margin-right: 2% !important;
+          margin-bottom: 1rem !important;
+        }
+        #temas-cards .card-icon:nth-child(2n) {
+          margin-right: 0 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="template-base">
+      <!-- Skiplinks -->
+      <nav class="br-skiplink" role="menubar">
+        <a class="br-item" href="#main-content" role="menuitem" accesskey="1">
+          Ir para o conteúdo <span aria-hidden="true">(1/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">1</span>
+        </a>
+        <a
+          class="br-item"
+          href="#header-navigation"
+          role="menuitem"
+          accesskey="2"
+        >
+          Ir para o menu <span aria-hidden="true">(2/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">2</span>
+        </a>
+        <a class="br-item" href="#main-searchbox" role="menuitem" accesskey="3">
+          Ir para a busca <span aria-hidden="true">(3/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">3</span>
+        </a>
+        <a class="br-item" href="#footer" role="menuitem" accesskey="4">
+          Ir para o rodapé <span aria-hidden="true">(4/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">4</span>
+        </a>
+      </nav>
+
+      <!-- Header -->
+      <header class="br-header mb-4" id="header" data-sticky="data-sticky">
+        <div class="container-lg">
+          <div class="header-top">
+            <div class="header-logo">
+              <img
+                src="https://www.serpro.gov.br/++resource++serpro.portalserprotema/capa/++resource++serpro.portalserprotema/img/capa/marca-serpro.png"
+                alt="logo Serpro"
+              />
+              <span class="br-divider vertical"></span>
+              <div class="header-sign">Design System do Governo</div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <div class="header-menu">
+              <div class="header-menu-trigger" id="header-navigation">
+                <button
+                  class="br-button small circle"
+                  type="button"
+                  aria-label="Menu"
+                  data-toggle="menu"
+                  data-target="#main-navigation"
+                >
+                  <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="header-info">
+                <div class="header-title">Central de Serviços Serpro</div>
+                <div class="header-subtitle">
+                  Canal de atendimento para usuários dos produtos e serviços do
+                  Serpro
+                </div>
+              </div>
+            </div>
+            <div class="header-search" id="main-searchbox">
+              <div class="br-input has-icon">
+                <label for="searchbox">Texto da pesquisa</label>
+                <input
+                  id="searchbox"
+                  type="text"
+                  placeholder="O que você procura?"
+                />
+                <button
+                  class="br-button circle small"
+                  type="button"
+                  aria-label="Pesquisar"
+                >
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+              <button
+                class="br-button circle search-close ml-1"
+                type="button"
+                aria-label="Fechar Busca"
+                data-dismiss="search"
+              >
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="d-flex flex-fill mb-5" id="main">
+        <div class="container-lg">
+          <div class="row">
+            <div class="col">
+              <nav class="br-breadcrumb mb-4">
+                <ol class="crumb-list" role="list">
+                  <li class="crumb home">
+                    <a class="br-button circle" href="index.html">
+                      <span class="sr-only">Página inicial</span>
+                      <i class="fas fa-home"></i>
+                    </a>
+                  </li>
+                  <li class="crumb">
+                    <i class="icon fas fa-chevron-right"></i>
+                    <a href="#">Tela Anterior</a>
+                  </li>
+                  <li class="crumb" data-active="active">
+                    <i class="icon fas fa-chevron-right"></i>
+                    <span tabindex="0" aria-current="page"
+                      >Cadastrar nova solicitação</span
+                    >
+                  </li>
+                </ol>
+              </nav>
+
+              <h1 id="main-content">Cadastrar nova solicitação</h1>
+
+              <div class="br-card mt-4">
+                <div class="card-header">
+                  Registro de Solicitação de Serviço
+                  <em class="text-danger ml-1">*</em>
+                </div>
+                <div class="card-content">
+                  <form
+                    id="formTicket"
+                    name="formTicket"
+                    action="#"
+                    method="post"
+                  >
+                    <fieldset class="mb-4">
+                      <legend>
+                        Identificação <em class="text-danger">*</em>
+                      </legend>
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="br-input">
+                            <label for="cpf">CPF</label>
+                            <input
+                              id="cpf"
+                              name="cpf"
+                              type="text"
+                              placeholder="Informe seu CPF"
+                              aria-required="true"
+                              readonly
+                              aria-readonly="true"
+                              tabindex="-1"
+                              value="355.842.340-28"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                          <div class="br-input">
+                            <label for="solicitante">Nome do Solicitante</label>
+                            <input
+                              id="solicitante"
+                              name="solicitante"
+                              type="text"
+                              placeholder="Fulano da Silva"
+                              disabled
+                              aria-readonly="true"
+                              aria-disabled="true"
+                              tabindex="-1"
+                              value="Jhon Doe"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="mb-4">
+                      <legend>Descrição <em class="text-danger">*</em></legend>
+                      <div
+                        class="row align-items-center justify-content-center"
+                      >
+                        <div class="col-md-10 mb-3" id="assunto-group">
+                          <div
+                            class="br-input large input-button"
+                            id="assunto-input-wrapper"
+                          >
+                            <label for="assunto">Assunto</label>
+                            <input
+                              id="assunto"
+                              name="assunto"
+                              type="text"
+                              placeholder="Digite aqui para pesquisar o assunto"
+                              class="form-control"
+                              aria-describedby="assunto-feedback"
+                            />
+                            <button
+                              class="br-button"
+                              type="button"
+                              aria-label="Buscar"
+                              style="margin-left: -40px; z-index: 1050"
+                            >
+                              <i class="fas fa-search" aria-hidden="true"></i>
+                            </button>
+                            <span
+                              class="feedback danger d-none"
+                              role="alert"
+                              id="assunto-feedback"
+                            >
+                              <i
+                                class="fas fa-times-circle"
+                                aria-hidden="true"
+                              ></i>
+                              O campo Assunto precisa ser preenchido.
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                          <button
+                            class="br-button primary mr-3 mt-3"
+                            type="button"
+                          >
+                            Pesquisar
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Lista de cards de temas sugeridos -->
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div
+                            class="d-flex flex-wrap gap-3 justify-content-start"
+                            id="temas-cards"
+                          >
+                            <div
+                              class="br-card hover p-5 text-center card-icon mr-4"
+                              style="width: calc(20% - 24px); height: 150px"
+                              role="button"
+                              tabindex="0"
+                              aria-label="Categoria Wellhub"
+                              data-tema="wellhub"
+                            >
+                              <img
+                                src="assets/images/wellhub.png"
+                                class="mb-3"
+                                width="60"
+                                height="60"
+                                alt="Ícone da categoria Wellhub"
+                              />
+                              <p>Wellhub</p>
+                            </div>
+                            <div
+                              class="br-card hover p-5 text-center card-icon mr-4"
+                              style="width: calc(20% - 24px); height: 150px"
+                              role="button"
+                              tabindex="0"
+                              aria-label="Categoria Novos Horizontes"
+                              data-tema="novos-horizontes"
+                            >
+                              <img
+                                src="assets/images/novos-horizontes.png"
+                                class="mb-3"
+                                width="100"
+                                height="60"
+                                alt="Ícone da categoria Novos Horizontes"
+                              />
+                              <p>Novos horizontes</p>
+                            </div>
+                            <div
+                              class="br-card hover p-5 text-center card-icon mr-4"
+                              style="width: calc(20% - 24px); height: 150px"
+                              role="button"
+                              tabindex="0"
+                              aria-label="Categoria Benefícios"
+                              data-tema="beneficios"
+                            >
+                              <img
+                                src="assets/images/beneficios.png"
+                                class="mb-3"
+                                width="60"
+                                height="60"
+                                alt="Ícone da categoria Benefícios"
+                              />
+                              <p>Benefícios</p>
+                            </div>
+                            <div
+                              class="br-card hover p-5 text-center card-icon mr-4"
+                              style="width: calc(20% - 24px); height: 150px"
+                              role="button"
+                              tabindex="0"
+                              aria-label="Categoria Educação"
+                              data-tema="educacao"
+                            >
+                              <img
+                                src="assets/images/educacao.png"
+                                class="mb-3"
+                                width="60"
+                                height="60"
+                                alt="Ícone da categoria Educação"
+                              />
+                              <p>Educação</p>
+                            </div>
+                            <div
+                              class="br-card hover p-5 text-center card-icon mr-4"
+                              style="width: calc(20% - 24px); height: 150px"
+                              role="button"
+                              tabindex="0"
+                              aria-label="Categoria Dúvida"
+                              data-tema="duvida"
+                            >
+                              <img
+                                src="assets/images/duvida.png"
+                                class="mb-3"
+                                width="60"
+                                height="60"
+                                alt="Ícone da categoria Dúvida"
+                              />
+                              <p>Dúvida</p>
+                            </div>
+                          </div>
+                          <!-- Área para tabs e cards menores -->
+                          <div
+                            id="opcoes-tema"
+                            tabindex="-1"
+                            style="display: none; margin-top: 1.5rem"
+                          >
+                            <ul
+                              class="nav nav-tabs"
+                              id="tab-opcoes"
+                              role="tablist"
+                            >
+                              <li class="nav-item" role="presentation">
+                                <a
+                                  class="nav-link active"
+                                  id="tab-opcoes-tema"
+                                  data-toggle="tab"
+                                  href="#tab-opcoes-content"
+                                  role="tab"
+                                  aria-controls="tab-opcoes-content"
+                                  aria-selected="true"
+                                  >Opções <span id="tema-selecionado"></span
+                                ></a>
+                              </li>
+                            </ul>
+                            <div
+                              class="tab-content p-3 border border-top-0"
+                              id="tab-opcoes-content"
+                              style="background: #f8f9fa"
+                            >
+                              <div class="row justify-content-start">
+                                <div class="col-sm-3 mb-3">
+                                  <div
+                                    class="br-card p-3 text-center small-card"
+                                    style="height: 90px"
+                                  >
+                                    Opção 1
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 mb-3">
+                                  <div
+                                    class="br-card p-3 text-center small-card"
+                                    style="height: 90px"
+                                  >
+                                    Opção 2
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 mb-3">
+                                  <div
+                                    class="br-card p-3 text-center small-card"
+                                    style="height: 90px"
+                                  >
+                                    Opção 3
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="br-textarea mb-3">
+                        <label for="detalhes">Detalhes da Demanda</label>
+                        <textarea
+                          id="detalhes"
+                          name="detalhes"
+                          placeholder="Descreva os detalhes da demanda..."
+                          rows="4"
+                          maxlength="1000"
+                        ></textarea>
+                        <div
+                          class="text-right text-muted small mt-1"
+                          id="contador-detalhes"
+                        >
+                          0/1000 caracteres
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="mb-4">
+                      <legend>Anexos</legend>
+                      <div class="br-upload">
+                        <label class="upload-label" for="multiple-files">
+                          <span>Envio de arquivos</span>
+                        </label>
+                        <input
+                          class="upload-input"
+                          id="multiple-files"
+                          name="anexos[]"
+                          type="file"
+                          multiple
+                          accept=".bmp,.csv,.doc,.docx,.gif,.jpeg,.jpg,.odb,.odd,.odp,.ods,.odt,.pdf,.png,.ppt,.pptx,.txt,.xls,.xlsx,.xml,.zip"
+                        />
+                        <div class="upload-list"></div>
+                      </div>
+                      <p class="text-base mt-1">
+                        Clique ou arraste os arquivos para cima do componente
+                        Upload.<br />Anexos (até 20 arquivos totalizando 40 MB.
+                        Extensões permitidas: bmp, csv, doc, docx, gif, jpeg,
+                        jpg, odb, odd, odp, ods, odt, pdf, png, ppt, pptx, txt,
+                        xls, xlsx, xml, zip)
+                      </p>
+                    </fieldset>
+
+                    <div class="mb-4 text-small">
+                      <a
+                        href="https://www.serpro.gov.br/menu/suporte/aviso-de-privacidade-css.pdf"
+                        target="_blank"
+                        class="br-link text-weight-bold"
+                        >Aviso de privacidade</a
+                      >
+                      e
+                      <a
+                        href="https://www.serpro.gov.br/menu/suporte/termos-de-uso-da-css.pdf"
+                        target="_blank"
+                        class="br-link text-weight-bold"
+                        >Termos de uso</a
+                      >
+                      da Central de Serviços Serpro.
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                      <button type="reset" class="br-button secondary mr-2">
+                        Limpar
+                      </button>
+                      <button type="submit" class="br-button primary">
+                        Enviar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="br-footer pt-3" id="footer">
+        <div class="container-lg">
+          <div class="info">
+            <div class="text-down-01 text-medium pb-3">
+              Texto destinado a exibição de informações relacionadas à
+              <strong><a href="#">licença de uso</a></strong
+              >.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      type="text/javascript"
+      src="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core-init.js"
+    ></script>
+    <script src="./index.js"></script>
+    <script>
+      // Permitir ativação dos cards via teclado
+      const cards = document.querySelectorAll('.br-card.hover[role="button"]');
+      cards.forEach((card) => {
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      // Envio do formulário
+      document
+        .getElementById("formTicket")
+        .addEventListener("submit", function (e) {
+          let erro = false;
+          // Validação do campo Detalhes da Demanda
+          const detalhesInput = document.getElementById("detalhes");
+          let detalhesWrapper = detalhesInput.closest(".br-textarea");
+          let detalhesFeedback = document.getElementById("detalhes-feedback");
+          if (!detalhesFeedback) {
+            detalhesFeedback = document.createElement("span");
+            detalhesFeedback.id = "detalhes-feedback";
+            detalhesFeedback.className = "feedback danger mt-1";
+            detalhesFeedback.setAttribute("role", "alert");
+            detalhesFeedback.innerHTML =
+              '<i class="fas fa-times-circle" aria-hidden="true"></i> O campo Detalhes da Demanda precisa ser preenchido.';
+            detalhesWrapper.appendChild(detalhesFeedback);
+          }
+          if (detalhesInput.value.trim() === "") {
+            e.preventDefault();
+            detalhesWrapper.classList.add("danger");
+            detalhesFeedback.classList.remove("d-none");
+            detalhesInput.focus();
+            erro = true;
+          } else {
+            detalhesWrapper.classList.remove("danger");
+            detalhesFeedback.classList.add("d-none");
+          }
+          // Validação do campo de upload
+          const uploadInput = document.getElementById("multiple-files");
+          let uploadWrapper = uploadInput.closest(".br-upload");
+          let uploadFeedback = document.getElementById("upload-feedback");
+          if (!uploadFeedback) {
+            uploadFeedback = document.createElement("span");
+            uploadFeedback.id = "upload-feedback";
+            uploadFeedback.className = "feedback danger mt-1";
+            uploadFeedback.setAttribute("role", "alert");
+            uploadFeedback.innerHTML =
+              '<i class="fas fa-times-circle" aria-hidden="true"></i> É necessário anexar pelo menos um arquivo.';
+            uploadWrapper.appendChild(uploadFeedback);
+          }
+          if (!uploadInput.files || uploadInput.files.length === 0) {
+            e.preventDefault();
+            uploadWrapper.classList.add("danger");
+            uploadFeedback.classList.remove("d-none");
+            if (!erro) uploadInput.focus();
+            erro = true;
+          } else {
+            uploadWrapper.classList.remove("danger");
+            uploadFeedback.classList.add("d-none");
+          }
+          if (erro) return;
+          window.location.replace("/tela-listagem.html");
+        });
+
+      // Limpar apenas campos não desativados ao clicar no botão Limpar
+      document
+        .querySelector('button[type="reset"]')
+        ?.addEventListener("click", function (e) {
+          setTimeout(function () {
+            document
+              .querySelectorAll(
+                "input:not([disabled]), textarea:not([disabled])"
+              )
+              .forEach(function (el) {
+                if (
+                  el.type === "text" ||
+                  el.tagName.toLowerCase() === "textarea"
+                ) {
+                  el.value = "";
+                }
+              });
+          }, 0);
+        });
+
+      // Contador de caracteres do campo Detalhes da Demanda
+      const detalhes = document.getElementById("detalhes");
+      const contador = document.getElementById("contador-detalhes");
+      if (detalhes && contador) {
+        detalhes.addEventListener("input", function () {
+          contador.textContent = `${detalhes.value.length}/1000 caracteres`;
+        });
+      }
+
+      // Adicionar script para exibir/ocultar opções ao clicar nos cards principais
+      const cardsPrincipais = document.querySelectorAll(
+        '.br-card.hover[role="button"]'
+      );
+      const opcoesTema = document.getElementById("opcoes-tema");
+
+      // Adiciona botão de fechar acessível se não existir
+      if (!document.getElementById("fechar-opcoes-tema")) {
+        const btnFechar = document.createElement("button");
+        btnFechar.id = "fechar-opcoes-tema";
+        btnFechar.className = "br-button secondary small mb-3";
+        btnFechar.type = "button";
+        btnFechar.innerText = "Fechar opções";
+        btnFechar.setAttribute("aria-label", "Fechar opções de subcategoria");
+        opcoesTema.insertBefore(btnFechar, opcoesTema.firstChild);
+
+        btnFechar.addEventListener("click", fecharOpcoesTema);
+      }
+
+      cardsPrincipais.forEach((card) => {
+        card.addEventListener("click", function () {
+          // Exibe subcategorias
+          var tema = card.querySelector("p")?.textContent || "";
+          document.getElementById("tema-selecionado").textContent = tema;
+          opcoesTema.style.display = "block";
+
+          // Desabilita tab nos cards principais
+          cardsPrincipais.forEach((c) => c.setAttribute("tabindex", "-1"));
+
+          // Habilita tab nas subcategorias
+          const subCards = opcoesTema.querySelectorAll(".small-card");
+          subCards.forEach((sub) => sub.setAttribute("tabindex", "0"));
+
+          // Foca o primeiro card de subcategoria
+          setTimeout(() => {
+            if (subCards.length) subCards[0].focus();
+          }, 100);
+        });
+      });
+
+      function fecharOpcoesTema() {
+        opcoesTema.style.display = "none";
+        // Restaura tab nos cards principais
+        cardsPrincipais.forEach((c) => c.setAttribute("tabindex", "0"));
+        // Remove tab das subcategorias
+        const subCards = opcoesTema.querySelectorAll(".small-card");
+        subCards.forEach((sub) => sub.setAttribute("tabindex", "-1"));
+        // Foca o primeiro card principal
+        setTimeout(() => {
+          if (cardsPrincipais.length) cardsPrincipais[0].focus();
+        }, 100);
+      }
+
+      // Inicialmente, subcategorias não são navegáveis
+      const subCardsInit = opcoesTema.querySelectorAll(".small-card");
+      subCardsInit.forEach((sub) => sub.setAttribute("tabindex", "-1"));
+
+      // Filtro dinâmico dos cards de temas conforme o campo Assunto
+      const inputAssunto = document.getElementById("assunto");
+      const cardsTemas = document.querySelectorAll(
+        '.br-card.hover[role="button"]'
+      );
+      if (inputAssunto && cardsTemas.length > 0) {
+        inputAssunto.addEventListener("input", function () {
+          const termo = inputAssunto.value.trim().toLowerCase();
+          if (!termo) {
+            cardsTemas.forEach(function (card) {
+              card.style.display = "";
+            });
+            return;
+          }
+          cardsTemas.forEach(function (card) {
+            const textoCard = card.textContent.toLowerCase();
+            const ariaLabel = (
+              card.getAttribute("aria-label") || ""
+            ).toLowerCase();
+            if (textoCard.includes(termo) || ariaLabel.includes(termo)) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
