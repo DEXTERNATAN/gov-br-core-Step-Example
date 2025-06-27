@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Central de Serviços Serpro — Suas Solicitações Cadastradas</title>
+
+    <!-- Fontes e Design System -->
+    <link
+      rel="stylesheet"
+      href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <style>
+      .action-icon {
+        font-size: 1.2rem;
+        margin: 0 0.25rem;
+        color: #005ea5;
+        transition: transform 0.2s, color 0.2s;
+      }
+      .action-icon:hover {
+        transform: scale(1.2);
+        color: #003c70;
+        cursor: pointer;
+      }
+      .card-icon {
+        transition: transform 0.2s;
+        height: 220px;
+      }
+      .card-icon:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="template-base">
+      <!-- Header -->
+      <header class="br-header mb-4" id="header" data-sticky="data-sticky">
+        <div class="container-lg">
+          <div class="header-top">
+            <div class="header-logo">
+              <img
+                src="https://www.serpro.gov.br/++resource++serpro.portalserprotema/capa/++resource++serpro.portalserprotema/img/capa/marca-serpro.png"
+                alt="logo"
+              />
+              <span class="br-divider vertical"></span>
+              <div class="header-sign">Design System do Governo</div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <div class="header-menu">
+              <div class="header-menu-trigger" id="header-navigation">
+                <button
+                  class="br-button small circle"
+                  type="button"
+                  aria-label="Menu"
+                  data-toggle="menu"
+                  data-target="#main-navigation"
+                >
+                  <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="header-info">
+                <div class="header-title">Central de Serviços Serpro</div>
+                <div class="header-subtitle">
+                  Canal de atendimento para usuários dos produtos e serviços do
+                  Serpro
+                </div>
+              </div>
+            </div>
+            <div class="header-search" id="main-searchbox">
+              <div class="br-input has-icon">
+                <label for="searchbox">Pesquisar solicitações</label>
+                <input
+                  id="searchbox"
+                  type="text"
+                  placeholder="Digite termo para filtrar…"
+                />
+                <button
+                  class="br-button circle small"
+                  type="button"
+                  aria-label="Pesquisar"
+                >
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Skiplinks -->
+      <nav class="br-skiplink" role="menubar">
+        <a class="br-item" href="#main-content" role="menuitem" accesskey="1">
+          Ir para o conteúdo <span aria-hidden="true">(1/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">1</span>
+        </a>
+        <a
+          class="br-item"
+          href="#header-navigation"
+          role="menuitem"
+          accesskey="2"
+        >
+          Ir para o menu <span aria-hidden="true">(2/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">2</span>
+        </a>
+        <a class="br-item" href="#main-searchbox" role="menuitem" accesskey="3">
+          Ir para a busca <span aria-hidden="true">(3/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">3</span>
+        </a>
+        <a class="br-item" href="#footer" role="menuitem" accesskey="4">
+          Ir para o rodapé <span aria-hidden="true">(4/4)</span>
+          <span aria-hidden="true" class="br-tag text ml-1">4</span>
+        </a>
+      </nav>
+
+      <!-- Main -->
+      <main class="d-flex flex-fill mb-5" id="main">
+        <div class="container-lg">
+          <div class="row">
+            <div class="col">
+              <nav class="br-breadcrumb mb-2" aria-label="Breadcrumb">
+                <ol class="crumb-list" role="list">
+                  <li class="crumb home">
+                    <a class="br-button circle" href="index.html">
+                      <span class="sr-only">Página inicial</span>
+                      <i class="fas fa-home"></i>
+                    </a>
+                  </li>
+                  <li class="crumb">
+                    <i class="icon fas fa-chevron-right"></i>
+                    <a href="index.html">Início</a>
+                  </li>
+                  <li class="crumb" data-active="active">
+                    <i class="icon fas fa-chevron-right"></i>
+                    <span tabindex="0" aria-current="page"
+                      >Suas Solicitações</span
+                    >
+                  </li>
+                </ol>
+              </nav>
+
+              <div
+                class="mb-3 text-left"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  justify-content: right;
+                "
+              >
+                <a href="tela-solicitacao.html" class="br-button primary">
+                  <i class="fas fa-plus mr-1"></i> Adicionar nova solicitação
+                </a>
+              </div>
+              <h1 id="main-content" class="mb-4">Suas Solicitações</h1>
+              <div class="br-card mb-4">
+                <div class="card-content p-0">
+                  <div class="table-responsive">
+                    <table class="table w-100 mb-0">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Data</th>
+                          <th scope="col">Nome da Demanda</th>
+                          <th scope="col">Prioridade</th>
+                          <th scope="col">Status</th>
+                          <th scope="col" class="text-center">Ações</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1012</th>
+                          <td>15/06/2025</td>
+                          <td>Atualização de Cadastro</td>
+                          <td>Alta</td>
+                          <td>
+                            <span
+                              class="br-tag bg-success text-dark"
+                              aria-describedby="tag-open"
+                              ><span id="tag-open">Aberto</span></span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <a href="#" title="Editar">
+                              <i class="fas fa-edit action-icon"></i>
+                            </a>
+                            <a href="#" title="Excluir">
+                              <i class="fas fa-trash-alt action-icon"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1011</th>
+                          <td>13/06/2025</td>
+                          <td>Solicitação de Certificado</td>
+                          <td>Média</td>
+                          <td>
+                            <span
+                              class="br-tag bg-warning text-dark"
+                              aria-describedby="tag-pending"
+                              ><span id="tag-pending">Pendente</span></span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <a href="#" title="Editar">
+                              <i class="fas fa-edit action-icon"></i>
+                            </a>
+                            <a href="#" title="Excluir">
+                              <i class="fas fa-trash-alt action-icon"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1010</th>
+                          <td>10/06/2025</td>
+                          <td>Relatório Mensal</td>
+                          <td>Baixa</td>
+                          <td>
+                            <span
+                              class="br-tag bg-danger text-white"
+                              aria-describedby="tag-closed"
+                              ><span id="tag-closed">Fechado</span></span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <a href="#" title="Reabrir">
+                              <i class="fas fa-redo action-icon"></i>
+                            </a>
+                            <a href="#" title="Excluir">
+                              <i class="fas fa-trash-alt action-icon"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <!-- mais linhas... -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="br-footer pt-3" id="footer">
+        <div class="container-lg">
+          <div class="info">
+            <div class="text-down-01 text-medium pb-3">
+              Todo o conteúdo deste site está publicado sob a licença
+              <strong
+                ><a
+                  href="https://creativecommons.org/licenses/by-nd/3.0/"
+                  target="_blank"
+                  rel="noopener"
+                  >Creative Commons Atribuição-SemDerivações 3.0</a
+                ></strong
+              >.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://docs-ds.estaleiro.serpro.gov.br/docs/ds/dist/core-init.js"></script>
+    <script>
+      // Função para mostrar mensagem de sucesso
+      function showSuccessMessage() {
+        if (document.getElementById("msg-excluido")) return;
+        const msg = document.createElement("div");
+        msg.className = "br-message success mt-0 mb-5";
+        msg.id = "msg-excluido";
+        msg.innerHTML = `
+          <div class="icon"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i></div>
+          <div class="content" aria-label="Sucesso. Registro excluído com sucesso." role="alert">
+            <span class="message-title">Sucesso.</span>
+            <span class="message-body">O registro foi excluído com sucesso.</span>
+          </div>
+          <div class="close">
+            <button class="br-button circle small" type="button" aria-label="Fechar a mensagem de sucesso"><i class="fas fa-times" aria-hidden="true"></i></button>
+          </div>
+        `;
+        // Inserir logo após o breadcrumb (independente da classe de margem)
+        const breadcrumb = document.querySelector(".br-breadcrumb");
+        if (breadcrumb && breadcrumb.parentNode) {
+          breadcrumb.parentNode.insertBefore(msg, breadcrumb.nextSibling);
+        } else {
+          document.querySelector(".container-lg").prepend(msg);
+        }
+        msg.querySelector(".close button").onclick = function () {
+          msg.remove();
+        };
+        // setTimeout(() => {
+        //   if (msg) msg.remove();
+        // }, 10000);
+      }
+      // Função para excluir uma linha da tabela ao clicar no ícone de lixeira
+      document.querySelectorAll(".fa-trash-alt").forEach(function (icon) {
+        icon.addEventListener("click", function (e) {
+          e.preventDefault();
+          const row = this.closest("tr");
+          if (row && confirm("Deseja realmente excluir esta solicitação?")) {
+            row.remove();
+            showSuccessMessage();
+          }
+        });
+      });
+      // Função para reabrir uma solicitação ao clicar no ícone de reabrir
+      document.querySelectorAll(".fa-redo").forEach(function (icon) {
+        icon.addEventListener("click", function (e) {
+          e.preventDefault();
+          const row = this.closest("tr");
+          if (row) {
+            const statusCell = row.querySelector("td span.br-tag");
+            if (statusCell) {
+              statusCell.className = "br-tag bg-success text-white";
+              statusCell.setAttribute("aria-describedby", "tag-open");
+              statusCell.innerHTML = '<span id="tag-open">Aberto</span>';
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
