@@ -53,6 +53,24 @@
         transform: scale(1.05);
         background: #e9ecef;
       }
+      /* Responsividade dos cards de temas */
+      @media (max-width: 767px) {
+        #temas-cards .card-icon {
+          width: 100% !important;
+          margin-right: 0 !important;
+          margin-bottom: 1rem !important;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        #temas-cards .card-icon {
+          width: 48% !important;
+          margin-right: 2% !important;
+          margin-bottom: 1rem !important;
+        }
+        #temas-cards .card-icon:nth-child(2n) {
+          margin-right: 0 !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -366,6 +384,7 @@
                           <!-- Área para tabs e cards menores -->
                           <div
                             id="opcoes-tema"
+                            tabindex="-1"
                             style="display: none; margin-top: 1.5rem"
                           >
                             <ul
@@ -616,15 +635,61 @@
       }
 
       // Adicionar script para exibir/ocultar opções ao clicar nos cards principais
-      document
-        .querySelectorAll('.br-card.hover[role="button"]')
-        .forEach(function (card) {
-          card.addEventListener("click", function () {
-            var tema = card.querySelector("p")?.textContent || "";
-            document.getElementById("tema-selecionado").textContent = tema;
-            document.getElementById("opcoes-tema").style.display = "block";
-          });
+      const cardsPrincipais = document.querySelectorAll(
+        '.br-card.hover[role="button"]'
+      );
+      const opcoesTema = document.getElementById("opcoes-tema");
+
+      // Adiciona botão de fechar acessível se não existir
+      if (!document.getElementById("fechar-opcoes-tema")) {
+        const btnFechar = document.createElement("button");
+        btnFechar.id = "fechar-opcoes-tema";
+        btnFechar.className = "br-button secondary small mb-3";
+        btnFechar.type = "button";
+        btnFechar.innerText = "Fechar opções";
+        btnFechar.setAttribute("aria-label", "Fechar opções de subcategoria");
+        opcoesTema.insertBefore(btnFechar, opcoesTema.firstChild);
+
+        btnFechar.addEventListener("click", fecharOpcoesTema);
+      }
+
+      cardsPrincipais.forEach((card) => {
+        card.addEventListener("click", function () {
+          // Exibe subcategorias
+          var tema = card.querySelector("p")?.textContent || "";
+          document.getElementById("tema-selecionado").textContent = tema;
+          opcoesTema.style.display = "block";
+
+          // Desabilita tab nos cards principais
+          cardsPrincipais.forEach((c) => c.setAttribute("tabindex", "-1"));
+
+          // Habilita tab nas subcategorias
+          const subCards = opcoesTema.querySelectorAll(".small-card");
+          subCards.forEach((sub) => sub.setAttribute("tabindex", "0"));
+
+          // Foca o primeiro card de subcategoria
+          setTimeout(() => {
+            if (subCards.length) subCards[0].focus();
+          }, 100);
         });
+      });
+
+      function fecharOpcoesTema() {
+        opcoesTema.style.display = "none";
+        // Restaura tab nos cards principais
+        cardsPrincipais.forEach((c) => c.setAttribute("tabindex", "0"));
+        // Remove tab das subcategorias
+        const subCards = opcoesTema.querySelectorAll(".small-card");
+        subCards.forEach((sub) => sub.setAttribute("tabindex", "-1"));
+        // Foca o primeiro card principal
+        setTimeout(() => {
+          if (cardsPrincipais.length) cardsPrincipais[0].focus();
+        }, 100);
+      }
+
+      // Inicialmente, subcategorias não são navegáveis
+      const subCardsInit = opcoesTema.querySelectorAll(".small-card");
+      subCardsInit.forEach((sub) => sub.setAttribute("tabindex", "-1"));
 
       // Filtro dinâmico dos cards de temas conforme o campo Assunto
       const inputAssunto = document.getElementById("assunto");

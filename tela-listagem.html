@@ -42,6 +42,54 @@
         transform: scale(1.05);
         cursor: pointer;
       }
+      /* Responsividade geral */
+      @media (max-width: 767px) {
+        .br-card,
+        .table-responsive,
+        .table {
+          width: 100% !important;
+          min-width: 0;
+        }
+        h1#main-content {
+          font-size: 1.3rem;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+        .mb-3.text-left {
+          flex-direction: column !important;
+          align-items: stretch !important;
+          justify-content: flex-start !important;
+          margin-bottom: 1rem !important;
+        }
+        .mb-3.text-left .br-button {
+          width: 100%;
+          margin: 0;
+        }
+        .action-icon {
+          font-size: 1rem;
+          margin: 0 0.15rem;
+        }
+        .br-breadcrumb {
+          font-size: 0.95rem;
+        }
+        .br-card.mb-4 {
+          padding: 0.5rem;
+        }
+        .table th,
+        .table td {
+          padding: 0.5rem 0.3rem;
+          font-size: 0.95rem;
+          word-break: break-word;
+        }
+      }
+      @media (max-width: 400px) {
+        h1#main-content {
+          font-size: 1.1rem;
+        }
+        .br-breadcrumb {
+          font-size: 0.85rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -165,88 +213,138 @@
                 </a>
               </div>
               <h1 id="main-content" class="mb-4">Suas Solicitações</h1>
-              <div class="br-card mb-4">
-                <div class="card-content p-0">
-                  <div class="table-responsive">
-                    <table class="table w-100 mb-0">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Data</th>
-                          <th scope="col">Nome da Demanda</th>
-                          <th scope="col">Prioridade</th>
-                          <th scope="col">Status</th>
-                          <th scope="col" class="text-center">Ações</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1012</th>
-                          <td>15/06/2025</td>
-                          <td>Atualização de Cadastro</td>
-                          <td>Alta</td>
-                          <td>
-                            <span
-                              class="br-tag bg-success text-dark"
-                              aria-describedby="tag-open"
-                              ><span id="tag-open">Aberto</span></span
-                            >
-                          </td>
-                          <td class="text-center">
-                            <a href="#" title="Editar">
-                              <i class="fas fa-edit action-icon"></i>
-                            </a>
-                            <a href="#" title="Excluir">
-                              <i class="fas fa-trash-alt action-icon"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">1011</th>
-                          <td>13/06/2025</td>
-                          <td>Solicitação de Certificado</td>
-                          <td>Média</td>
-                          <td>
-                            <span
-                              class="br-tag bg-warning text-dark"
-                              aria-describedby="tag-pending"
-                              ><span id="tag-pending">Pendente</span></span
-                            >
-                          </td>
-                          <td class="text-center">
-                            <a href="#" title="Editar">
-                              <i class="fas fa-edit action-icon"></i>
-                            </a>
-                            <a href="#" title="Excluir">
-                              <i class="fas fa-trash-alt action-icon"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">1010</th>
-                          <td>10/06/2025</td>
-                          <td>Relatório Mensal</td>
-                          <td>Baixa</td>
-                          <td>
-                            <span
-                              class="br-tag bg-danger text-white"
-                              aria-describedby="tag-closed"
-                              ><span id="tag-closed">Fechado</span></span
-                            >
-                          </td>
-                          <td class="text-center">
-                            <a href="#" title="Reabrir">
-                              <i class="fas fa-redo action-icon"></i>
-                            </a>
-                            <a href="#" title="Excluir">
-                              <i class="fas fa-trash-alt action-icon"></i>
-                            </a>
-                          </td>
-                        </tr>
-                        <!-- mais linhas... -->
-                      </tbody>
-                    </table>
+              <div class="br-table mb-4" title="Tabela de solicitações">
+                <div class="table-header">
+                  <div class="top-bar">
+                    <!-- <div class="table-title">Suas Solicitações</div> -->
+                    <!-- <div class="actions-trigger text-nowrap">
+                      <button
+                        class="br-button circle"
+                        type="button"
+                        id="button-dropdown-density"
+                        title="Ver mais opções"
+                        data-toggle="dropdown"
+                        data-target="target01-44597"
+                        aria-label="Definir densidade da tabela"
+                        aria-haspopup="true"
+                        aria-live="polite"
+                      >
+                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                      </button>
+                      <div
+                        class="br-list"
+                        id="target01-44597"
+                        role="menu"
+                        aria-labelledby="button-dropdown-density"
+                        hidden="hidden"
+                      >
+                        <button
+                          class="br-item"
+                          type="button"
+                          data-density="small"
+                          role="menuitem"
+                        >
+                          Densidade alta</button
+                        ><span class="br-divider"></span>
+                        <button
+                          class="br-item"
+                          type="button"
+                          data-density="medium"
+                          role="menuitem"
+                        >
+                          Densidade média</button
+                        ><span class="br-divider"></span>
+                        <button
+                          class="br-item"
+                          type="button"
+                          data-density="large"
+                          role="menuitem"
+                        >
+                          Densidade baixa
+                        </button>
+                      </div>
+                    </div> -->
                   </div>
+                </div>
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Nome da Demanda</th>
+                        <th scope="col">Prioridade</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" class="text-center">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1012</th>
+                        <td>15/06/2025</td>
+                        <td>Atualização de Cadastro</td>
+                        <td>Alta</td>
+                        <td>
+                          <span
+                            class="br-tag bg-success text-dark"
+                            aria-describedby="tag-open"
+                            ><span id="tag-open">Aberto</span></span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <a href="#" title="Editar">
+                            <i class="fas fa-edit action-icon"></i>
+                          </a>
+                          <a href="#" title="Excluir">
+                            <i class="fas fa-trash-alt action-icon"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1011</th>
+                        <td>13/06/2025</td>
+                        <td>Solicitação de Certificado</td>
+                        <td>Média</td>
+                        <td>
+                          <span
+                            class="br-tag bg-warning text-dark"
+                            aria-describedby="tag-pending"
+                            ><span id="tag-pending">Pendente</span></span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <a href="#" title="Editar">
+                            <i class="fas fa-edit action-icon"></i>
+                          </a>
+                          <a href="#" title="Excluir">
+                            <i class="fas fa-trash-alt action-icon"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1010</th>
+                        <td>10/06/2025</td>
+                        <td>Relatório Mensal</td>
+                        <td>Baixa</td>
+                        <td>
+                          <span
+                            class="br-tag bg-danger text-white"
+                            aria-describedby="tag-closed"
+                            ><span id="tag-closed">Fechado</span></span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <a href="#" title="Reabrir">
+                            <i class="fas fa-redo action-icon"></i>
+                          </a>
+                          <a href="#" title="Excluir">
+                            <i class="fas fa-trash-alt action-icon"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <!-- mais linhas... -->
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
